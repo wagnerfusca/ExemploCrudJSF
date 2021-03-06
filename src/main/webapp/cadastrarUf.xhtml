@@ -4,28 +4,31 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
 	<title>exemplo</title>
 
 </h:head>
 <h:body>
+	<h2>Cadastro de Unidades Federativas (UF)</h2>
 	<h:form>
 		<h:panelGrid columns="3" cellpadding="5">
-			<h:outputLabel value="Sigla UF:" for="sigla-uf" />
+			<h:outputLabel value="Sigla UF:" for="sigla-uf" class="form-label"/>
 			<h:inputText id="sigla-uf" required="true" value="#{ufBean.uf.sigla}" 
-				label="Sigla UF" validatorMessage="Digite somente letras" maxlength="2">
+				label="Sigla UF" validatorMessage="Digite somente letras" maxlength="2"  class="form-control">
 				<f:validateRegex pattern="^[a-zA-Z]+$" />
 			</h:inputText>
 			<h:message for="sigla-uf" display="text" />
 			
-			<h:outputLabel value="Nome UF:" for="nome-uf" />
+			<h:outputLabel value="Nome UF:" for="nome-uf" class="form-label"/>
 			<h:inputText id="nome-uf" required="true" value="#{ufBean.uf.nome}"
-				label="Nome UF" >				
+				label="Nome UF"  class="form-control">				
 			</h:inputText>
 			<h:message for="nome-uf" display="text" />
 		</h:panelGrid>
-		<h:commandButton value="Salvar" action="#{ufBean.salvar}" />
+		<h:commandButton value="Salvar" action="#{ufBean.salvar}" class="btn btn-success"/>
+		
 
 	</h:form>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </h:body>
 </html>

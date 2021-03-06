@@ -1,4 +1,4 @@
-package br.com.db1.model;
+package br.com.aula.model;
 
 public class Uf {
 
