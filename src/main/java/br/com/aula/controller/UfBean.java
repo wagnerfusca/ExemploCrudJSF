@@ -23,8 +23,6 @@ public class UfBean {
 		if (list == null) {
 			list = new ArrayList<Uf>();
 		}
-		this.uf = new Uf();
-
 	}
 
 	public Uf getUf() {
