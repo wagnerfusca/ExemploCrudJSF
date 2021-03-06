@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>exemplo</title>
+
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3" cellpadding="5">
+			<h:outputLabel value="Sigla UF:" for="sigla-uf" />
+			<h:inputText id="sigla-uf" required="true" value="#{ufBean.uf.sigla}" 
+				label="Sigla UF" validatorMessage="Digite somente letras" maxlength="2">
+				<f:validateRegex pattern="^[a-zA-Z]+$" />
+			</h:inputText>
+			<h:message for="sigla-uf" display="text" />
+			
+			<h:outputLabel value="Nome UF:" for="nome-uf" />
+			<h:inputText id="nome-uf" required="true" value="#{ufBean.uf.nome}"
+				label="Nome UF" >				
+			</h:inputText>
+			<h:message for="nome-uf" display="text" />
+		</h:panelGrid>
+		<h:commandButton value="Salvar" action="#{ufBean.salvar}" />
+
+	</h:form>
+
+</h:body>
+</html>
