@@ -4,36 +4,32 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
 	<title>exemplo</title>
 </h:head>
 <h:body>
 	<h2>Cadastro de Unidades Federativas (UF)</h2>
-	<h:form id="form">
+	<h:form id="form" >
 
-		<h:dataTable value="#{ufBean.list}" var="item"	id="tabelaUf" >
-			<h:column>
+		<h:dataTable value="#{ufBean.list}" var="item"	id="tabelaUf" class="container">
+		<div class="row">
+			<h:column class="col-sm">
 				<f:facet name="header">Sigla</f:facet>  
 				<h:outputText value="#{item.sigla}" id="sigla"/>
 			</h:column>
-			<h:column >
+			<h:column class="col-sm">
 				<f:facet name="header">Nome</f:facet>
 				<h:outputText value="#{item.nome}" />
 			</h:column>
 
 			<h:column style="width:32px;text-align: center">
-				<h:commandLink action="#{ufBean.editar(item)}">
-					<h:graphicImage library="imagem" name="edit.png" alt="Editar"
-						title="Editar" />
-				</h:commandLink>
-
-				<h:commandLink action="#{ufBean.remover(item)}">
-					<h:graphicImage library="imagem" name="trash.png" alt="Remover"
-						title="Remover" />
-				</h:commandLink>
-
+				<h:commandButton value="Editar" action="#{ufBean.editar(item)}" class="btn btn-info" />
+				<h:commandButton value="Remover" action="#{ufBean.remover(item)}" class="btn btn-warning"/>
 			</h:column>
+			</div>
 		</h:dataTable>
-		<h:commandButton value="Adicionar" action="#{ufBean.novo}" />
+		<h:commandButton value="Adicionar" action="#{ufBean.novo}" class="btn btn-primary"/>
 	</h:form>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </h:body>
 </html>

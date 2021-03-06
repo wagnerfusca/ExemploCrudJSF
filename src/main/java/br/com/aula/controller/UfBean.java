@@ -1,4 +1,4 @@
-package br.com.db1.controller;
+package br.com.aula.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
-import br.com.db1.model.Uf;
+import br.com.aula.model.Uf;
 
 @ManagedBean
 @ApplicationScoped
