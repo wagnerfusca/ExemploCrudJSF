@@ -6,6 +6,11 @@
    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
 	<welcome-file-list>
 		<welcome-file>uf.xhtml</welcome-file>
 	</welcome-file-list>
@@ -20,5 +25,6 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+
 
 </web-app>

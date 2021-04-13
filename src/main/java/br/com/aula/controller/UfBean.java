@@ -1,18 +1,24 @@
 package br.com.aula.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import br.com.aula.dao.impl.UfDao;
 import br.com.aula.model.Uf;
 
+@Component
 @ManagedBean
 @ApplicationScoped
 public class UfBean {
+
+	@Autowired
+	UfDao ufDao;
 
 	private List<Uf> list;
 
@@ -21,7 +27,7 @@ public class UfBean {
 	@PostConstruct
 	public void init() {
 		if (list == null) {
-			list = new ArrayList<Uf>();
+			list = ufDao.findAll();
 		}
 	}
 
@@ -43,13 +49,8 @@ public class UfBean {
 	}
 
 	public String salvar() {
-		if (this.uf.getId() != null) {
-			list.remove(this.uf);
-			list.add(this.uf);
-		} else {
-			Random random = new Random();
-			this.uf.setId(random.nextInt());
-			list.add(this.uf);
+		if (ufDao.save(this.uf)) {
+			list = ufDao.findByName(this.uf.getNome());
 		}
 		return "uf";
 
@@ -61,7 +62,7 @@ public class UfBean {
 	}
 
 	public String remover(Uf uf) {
-		list.remove(uf);
+		ufDao.delete(uf.getId());
 		return "uf";
 	}
 
