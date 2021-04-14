@@ -50,7 +50,7 @@ public class UfBean {
 
 	public String salvar() {
 		if (ufDao.save(this.uf)) {
-			list = ufDao.findByName(this.uf.getNome());
+			list = ufDao.findAll();
 		}
 		return "uf";
 
@@ -63,6 +63,7 @@ public class UfBean {
 
 	public String remover(Uf uf) {
 		ufDao.delete(uf.getId());
+		list = ufDao.findAll();
 		return "uf";
 	}
 

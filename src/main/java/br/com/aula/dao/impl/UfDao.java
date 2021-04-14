@@ -38,12 +38,22 @@ public class UfDao implements DAO<Uf> {
 		query.setParameter("pNome", "%" + name + "%");
 		return query.getResultList();
 	}
-
+	
+	@Override
 	public boolean save(Uf uf) {
-		entityManager.persist(uf);
+		try {
+			if (uf.getId() != null) {
+				entityManager.merge(uf);
+			} else {
+				entityManager.persist(uf);
+			}
+		} catch (Exception e) {
+			return false;
+		}
 		return true;
 	}
 
+	@Override
 	public boolean delete(Integer id) {
 		Uf uf = findById(id);
 		entityManager.remove(uf);
