@@ -1,2 +1,2 @@
 # ExemploCrudJSF
-Exemplo de Crud com JSF, sem usar banco de dados.
+Exemplo de Crud com JSF, Spring, DAO e usando base de dados H2 em memória
